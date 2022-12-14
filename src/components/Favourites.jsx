@@ -1,20 +1,31 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
-export const Favourites = () => {
-  
-  async function getFavourites(){
-    const response = await(`backend route address`) 
-    const data = await response.json()
-    const favorites = data 
+const Favourites = ({updateFavourite}) => {
+  const [favorites, setFavorites] = useState([])
 
+
+  useEffect(() => {
+    fetch(`http://localhost:8080/users/1`).then((res) => res.json()).then((data) => setFavorites(data))
     // two more api request one to remove from the database 
-    //(needs to be a route)
+    //(needs to be a route or this could work on the same route which would add if book is not in, and remove if book is in)
+  }, [updateFavourite])
 
-    //
-
-    // will have to setFavorites(favorites)
-  }
   return (
-    <h1>Favourites</h1>
+    <div id="favourites">
+      <h1>Favourites</h1>
+      {favorites.map(function(book){
+        return (
+          <div key={book.id}>
+            <h2>{book.title}</h2>
+            <h2>{book.author}</h2>
+            <button>❌</button>
+            <br></br>
+          </div>
+        )
+        
+      })}
+    </div>
   )
 }
+
+export default Favourites
