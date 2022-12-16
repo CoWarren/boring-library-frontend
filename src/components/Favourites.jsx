@@ -21,14 +21,20 @@ const Favourites = ({updateFavourite,setUpdateFavourite,favorites,setFavorites})
     //(needs to be a route or this could work on the same route which would add if book is not in, and remove if book is in)
   }, [updateFavourite])
 
+  
+
   return (
     <div className='favourites'>
       <h1>Favourites</h1>
 
       <div className="flex">
+      { favorites.length === 0 &&
+              <h2 className = "errorText">No favourites to display</h2>
+            }
       {favorites.map(function(book){
         return (
           <div key={book.id} className="book">
+            
             <img src={book.thumbnail} />
             <h2>{book.title}</h2>
             <h2>{book.author}</h2>

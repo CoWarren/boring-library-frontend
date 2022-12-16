@@ -44,6 +44,7 @@ const Login = ({setPage,setBtnText}) => {
       setBtnText('Logout')
       setPage('main')
     }else{
+      setLoginStatus("failed")
       console.log('Create account failed!')
     }
   }
@@ -56,10 +57,10 @@ const Login = ({setPage,setBtnText}) => {
           <input id="password-input" type='password' placeholder='password'/>
           <button type="button" onClick={() => {loginAccount()}}>Login</button>
           <button type="button" onClick={() => {createAccount()}}>Create Account</button>
-        </form>
         { loginStatus === "failed" &&
-           <h3>Incorrect Username or Password</h3>
+           <div className='form-error-text'>Incorrect Username or Password</div>
         }
+        </form>
       </div>
     </div>
   )
