@@ -17,7 +17,7 @@ function App() {
   if (page === 'main'){
     return (
       <div className="App">
-        <Header className="header" setPage={setPage} btnText={btnText} setBtnText = {setBtnText}/>
+        <Header className="header" setPage={setPage} btnText={btnText} setBtnText = {setBtnText} page={page}/>
         <main className='grid'>
           <Favourites updateFavourite={updateFavourite} setUpdateFavourite={setUpdateFavourite} favorites={favorites} setFavorites={setFavorites}/>
           <Searchbar updateFavourite={updateFavourite} setUpdateFavourite={setUpdateFavourite} setPage={setPage} bookPage={bookPage} setBookPage={setBookPage} favoruites={favorites}/>

@@ -121,10 +121,8 @@ const Searchbar = ({updateFavourite,setUpdateFavourite, setPage, bookPage, setBo
           // component instead is better practice
           <div className="book" key={id}>
             <img src={thumbnail}></img>
-            <div className="title-author">
-              <h2>{title}</h2>
-              <h2>{authors}</h2>
-            </div>
+            <h2>{title}</h2>
+            <h2>{authors}</h2>
             <button onClick={function(){
               if (!inFavs){ //add to favourites bar
                 addToFavourites(authors.toString(),title,id,thumbnail)
