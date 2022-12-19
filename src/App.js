@@ -12,7 +12,7 @@ function App() {
   const [page, setPage] = useState('main') //page which is being displayed (login or main)
   const [btnText, setBtnText] = useState('Login / Sign up') //update text on login button
   const [favorites, setFavorites] = useState([])
-  let [bookPage,setBookPage] = useState(0) //current batch of books from api 
+  let [bookPage,setBookPage] = useState(1) //current batch of books from api 
   
   if (page === 'main'){
     return (

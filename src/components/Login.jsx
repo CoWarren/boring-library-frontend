@@ -29,7 +29,14 @@ const Login = ({setPage,setBtnText}) => {
     }
   }
 
-  async function createAccount(){ 
+  async function createAccount(){
+
+    if (!document.getElementById('username-input').value || !document.getElementById('password-input').value){
+      setLoginStatus("failed")
+      console.log('Create account failed!')
+      return
+    }
+
     const res =  await fetch(`http://localhost:8080/account/create`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
