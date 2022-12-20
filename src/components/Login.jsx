@@ -56,9 +56,8 @@ const Login = ({setPage,setBtnText}) => {
     }
   }
   return (
-    <div className='form-container'>
-      <div className='form-wrapper'>
-        <form>
+    <div className='login-container flex-center-j'>
+        <form className='flex-column'>
           <div className='form-header'>Login/Register</div>
           <input id="username-input" type='text' placeholder='username'/>
           <input id="password-input" type='password' placeholder='password'/>
@@ -68,7 +67,6 @@ const Login = ({setPage,setBtnText}) => {
            <div className='form-error-text'>Incorrect Username or Password</div>
         }
         </form>
-      </div>
     </div>
   )
 }
