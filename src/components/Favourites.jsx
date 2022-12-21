@@ -114,21 +114,21 @@ const Favourites = ({
 
         {favorites.map(function (book) {
           if(!filteredWishList || filteredWishList && wishList.includes(book.id)){
-          if (!filteredRead || filteredRead && readList.includes(book.id))
-            {return (
-              <div key={book.id} className="book">
-                <img src={book.thumbnail} />
-                <h2>{book.title}</h2>
-                <h2>{book.author}</h2>
-                <section className="filter-buttons">
-                  <button
-                    onClick={function () {
-                      editReadList(book.id);
-                    }}
-                  >
+            if (!filteredRead || filteredRead && readList.includes(book.id)){
+              return (
+                <div key={book.id} className="book">
+                  <img src={book.thumbnail} />
+                  <h2>{book.title}</h2>
+                  <h2>{book.author}</h2>
+                  <section className="filter-buttons">
+                    <button
+                      onClick={function () {
+                        editReadList(book.id);
+                      }}
+                    >
                     {readList.includes(book.id)
                       ? "remove from to read list"
-                      : "to read list"}
+                      : "add to read list"}
                   </button>
                   <button
                     onClick={function () {

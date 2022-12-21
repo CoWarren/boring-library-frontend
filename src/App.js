@@ -14,25 +14,41 @@ function App() {
   const [favorites, setFavorites] = useState([])
   let [bookPage,setBookPage] = useState(1) //current batch of books from api 
 
-  if (page === 'main'){
+  if (page === "main") {
+    // initial commitß
     return (
       <div className="App">
-        <Header setPage={setPage} btnText={btnText} setBtnText = {setBtnText} page={page}/>
-        <main>
-          <Favourites updateFavourite={updateFavourite} setUpdateFavourite={setUpdateFavourite} favorites={favorites} setFavorites={setFavorites}/>
-          <Searchbar updateFavourite={updateFavourite} setUpdateFavourite={setUpdateFavourite} setPage={setPage} bookPage={bookPage} setBookPage={setBookPage} favourites={favorites}/>
+        <Header
+          setPage={setPage}
+          btnText={btnText}
+          setBtnText={setBtnText}
+          page={page}
+        />
+        <main className="grid">
+          <Favourites
+            updateFavourite={updateFavourite}
+            setUpdateFavourite={setUpdateFavourite}
+            favorites={favorites}
+            setFavorites={setFavorites}
+          />
+          <Searchbar
+            updateFavourite={updateFavourite}
+            setUpdateFavourite={setUpdateFavourite}
+            setPage={setPage}
+            bookPage={bookPage}
+            setBookPage={setBookPage}
+            favoruites={favorites}
+          />
         </main>
       </div>
     );
-  } else if (page === 'login'){
+  } else if (page === "login") {
     return (
       <div className="App">
         <Header setPage={setPage} btnText={btnText} setBtnText={setBtnText}/>
         <Login setPage={setPage} page={page} setBtnText={setBtnText}/>
-      
       </div>
-      
-    )
+    );
   }
 }
 
