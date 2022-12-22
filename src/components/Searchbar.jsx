@@ -8,7 +8,7 @@ const Searchbar = (props) => {
   // const [err, setErr] = useState('')
   const [books, setBooks] = useState([]);
   const nResults = 40; //how many books are returned on one search
-  
+
   useEffect(() => {
     handleSubmit(false, "java");
     //second parameter is deafult search that will be displayed on load
@@ -34,25 +34,32 @@ const Searchbar = (props) => {
     //console.log(data)
 
     //Fetching off API through backend (this is new)
-    const response = await fetch(`http://localhost:8080/API/${params.split(' ').join('')}/0`)
-    const {items} = await response.json()
+    const response = await fetch(
+      `http://localhost:8080/API/${params.split(" ").join("")}/0`
+    );
+    const { items } = await response.json();
     setBooks(items);
   };
 
   return (
     <div className="main-section flex-column">
-      <form className="search-form flex" onSubmit={handleSubmit}>
-        <input
-          id="search-params"
-          type="text"
-          placeholder="Search" // onChange={(e) => search(e.target.value)}
-        />
-        <button className="search-btn">
+      <div className="searchbar-container flex-center-a">
+        <form className="searchbar-form-container flex" onSubmit={handleSubmit}>
+          <div className="searchbar-form-input-container">
+            <input
+              id="search-params"
+              type="text"
+              placeholder="Search" // onChange={(e) => search(e.target.value)}
+            />
+            <button className="search-btn">
+              <img src={magnify} />
+            </button>
+          </div>
 
-          <img src={magnify} />
-        </button>
-        <PageBtns setBooks={setBooks}/>
-      </form>
+          <PageBtns setBooks={setBooks} />
+        </form>
+      </div>
+
       <ResultsGrid
         favourites={props.favourites}
         books={books}
