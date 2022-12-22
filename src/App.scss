@@ -33,16 +33,15 @@ $primary-txt-clr: #dddddd;
   overflow-y: hidden;
 
   font-family: "Patrick Hand SC", sans-serif;
-  // font-family: "Nova Round", sans-serif;
+  // font-familyß: "Nova Round", sans-serif;
   // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
   header {
     background-color: $main-bg--color;
     justify-content: space-between;
-    padding: 0.6em;
+    padding: 0.2em;
     flex-wrap: wrap;
     .logo-container {
-      width: 350px;
-      min-width: 30vw;
+      max-width: 350px;
       :hover {
         cursor: pointer;
       }
@@ -284,8 +283,7 @@ $primary-txt-clr: #dddddd;
           background-color: #43405d;
           color: $primary-txt-clr;
           flex-basis: 200px;
-          flex-grow: 0;
-          flex-shrink: 0;
+          ß
           // width: 200px;
 
           h2 {
