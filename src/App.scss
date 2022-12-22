@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Patrick+Hand+SC');
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
-@import url('https://fonts.googleapis.com/css?family=Nova+Round');
+@import url("https://fonts.googleapis.com/css?family=Patrick+Hand+SC");
+@import url("https://fonts.googleapis.com/css?family=Space+Mono");
+@import url("https://fonts.googleapis.com/css?family=Nova+Round");
 
 // Custom variables
 
-$main-bg--color: #574E6D;
+$main-bg--color: #574e6d;
 $modal-bg-clr: rgba(221, 221, 221, 0.8);
 // Media queries with Mixin
-
 
 @mixin mobile {
   @media screen and (max-width: 480px) {
@@ -27,54 +26,53 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
   }
 }
 
-
-
-.App{
+.App {
   height: 100%;
   overflow-y: hidden;
- 
+
   font-family: "Patrick Hand SC", sans-serif;
   // font-family: "Nova Round", sans-serif;
-    // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  // font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
   header {
     background-color: $main-bg--color;
     justify-content: space-between;
-  
     padding: 0.6em;
-
-    .username{
-      margin-left: auto;
-      margin-right: 2vw;
-      h2{
-        color: #DDDDDD;
-      }
-    }
-
+    flex-wrap: wrap;
     .logo-container {
       width: 350px;
       min-width: 30vw;
-      :hover{
+      :hover {
         cursor: pointer;
       }
     }
-    
-  
-    
 
-    .user-btn > button{
-      color: #DDDDDD;
-      background-color: #43405D;
-      border: none;
-      border-radius: 25px;
-      font-weight: bold;
-      padding: 10px;
-      cursor: pointer;
-     
-      :hover{
-      background-color: #55526e;
+    .user-interaction-ctrl-container {
+      gap: 2em;
+      .username-container {
+        margin-left: auto;
+        h2 {
+          color: #dddddd;
+        }
+      }
+
+      .user-btn > button {
+        color: #dddddd;
+        background-color: #43405d;
+        border: none;
+        border-radius: 25px;
+        font-weight: bold;
+        padding: 10px;
+        cursor: pointer;
+
+        :hover {
+          background-color: #55526e;
+        }
+      }
     }
+
+    @include mobile {
+      justify-content: center;
     }
-    
   }
 
   // we need two major sections, one for the main page, one for a login page
@@ -83,73 +81,71 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
   .login-container {
     height: 100%;
     // margin-top: 10em;
-        
-      form {
-        border: 1px solid black;
-        border-radius: 28px;
-        min-width: 25%;
-        padding: 2em;
-        gap: 12px;
-        
-        .form-header {
-        
-          color: #f5f5f5;
-          font-size: 30px;
-          text-align: center;
-        }
-  
-        input {
-          padding: 7px;
-          border: none;
-          border-radius: 25px;
-        }
-  
-        button {
-          color: #DDDDDD;
-          background-color: #43405D;
-          border: none;
-          border-radius: 25px;
-          padding: 5px;
-          cursor: pointer;
-        }
-  
-        button:hover{
-          background-color: #55526e;
-        }
-        .form-error-text {
-          text-align: center;
-          font-size: 10px;
-          color: rgb(255, 67, 67);
-        }
+
+    form {
+      border: 1px solid black;
+      border-radius: 28px;
+      min-width: 25%;
+      padding: 2em;
+      gap: 12px;
+
+      .form-header {
+        color: #f5f5f5;
+        font-size: 30px;
+        text-align: center;
       }
-    
+
+      input {
+        padding: 7px;
+        border: none;
+        border-radius: 25px;
+      }
+
+      button {
+        color: #dddddd;
+        background-color: #43405d;
+        border: none;
+        border-radius: 25px;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #55526e;
+      }
+      .form-error-text {
+        text-align: center;
+        font-size: 10px;
+        color: rgb(255, 67, 67);
+      }
+    }
   }
 
   // Main page ; App
-  // Inside of Main page: User Favourites, Main Section 
+  // Inside of Main page: User Favourites, Main Section
   // Inside of Main section: Searchbar, Results Grid
-  
-  main{
+
+  main {
     height: 100%;
     flex-wrap: wrap;
 
     // flex-shrink: 1;
-    
-    .fav-container{
+
+    .fav-container {
       background-color: #55526e;
       flex: 1;
-      
-      .fav-header{
+
+      .fav-header {
         align-self: center;
         padding-bottom: 20px;
-        
-        .favourite-filter{
+
+        .favourite-filter {
           padding-top: 2%;
           text-align: center;
         }
       }
 
-      .fav-books{
+      .fav-books {
         flex-wrap: wrap;
         justify-items: center;
         padding-top: 5%;
@@ -159,13 +155,13 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
         padding-right: 5%;
 
         margin-bottom: 10%;
-        
-        .errorText{
+
+        .errorText {
           margin-left: auto;
           margin-right: auto;
         }
 
-        .book{
+        .book {
           // background-color: #4B586E;
           // color: #DDDDDD;
           width: 230px;
@@ -179,33 +175,30 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
           padding: 0px;
           opacity: 90%;
           transition: opacity 0.2s;
-          
-          background-color: #43405D;
-          color: #DDDDDD;
 
+          background-color: #43405d;
+          color: #dddddd;
 
-          
-          img{
-            width: 100%;//150 by 221
+          img {
+            width: 100%; //150 by 221
             height: 100%;
             border-top-left-radius: 7px;
             border-top-right-radius: 7px;
           }
 
-          h2{
+          h2 {
             padding: 0px;
             font-size: 80%;
             margin-left: 4%;
             margin-top: 2%;
             margin-bottom: 0px;
           }
-            
-          .filter-buttons{
-            
-            background-color: #43405D;
+
+          .filter-buttons {
+            background-color: #43405d;
             height: 100%;
 
-            button{
+            button {
               height: 100%;
               width: 50%;
               background-color: transparent;
@@ -213,15 +206,14 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
               border: none;
               outline: none;
               cursor: pointer;
-              color: #DDDDDD;
+              color: #dddddd;
               border-bottom-left-radius: 7px;
               border-bottom-right-radius: 7px;
               z-index: 1000;
               align-self: flex-end;
-              
             }
           }
-          
+
           .fav-button {
             grid-row: 6/7;
             width: 100%;
@@ -230,38 +222,35 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
             border: none;
             outline: none;
             cursor: pointer;
-            color: #DDDDDD;
+            color: #dddddd;
             border-bottom-left-radius: 7px;
             border-bottom-right-radius: 7px;
             z-index: 1000;
             align-self: flex-end;
 
             transition: background-color 0.2s;
-            :hover{
+            :hover {
               background-color: rgb(34, 37, 37);
             }
-          }  
-}
+          }
+        }
       }
-
     }
-    
-    
-    .main-section{
+
+    .main-section {
       height: 100%;
       flex: 2;
-  
-      .search-form{
+
+      .search-form {
         box-sizing: border-box;
-        
+
         input {
           border-radius: 25px;
           padding: 10px;
           width: 35%;
-          
         }
         .search-btn {
-         width: 30px;
+          width: 30px;
           background: transparent;
           outline: none;
           border: none;
@@ -269,23 +258,21 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
           cursor: pointer;
         }
 
-        .page-btns{
-          button{
+        .page-btns {
+          button {
             background-color: none;
           }
         }
       }
 
-
-
-      .search-results{
+      .search-results {
         height: 100vh;
         overflow-y: scroll;
 
         justify-content: space-around;
         flex-wrap: wrap;
 
-        .book{
+        .book {
           // background-color: #4B586E;
           // color: #DDDDDD;
           margin: 2%;
@@ -298,29 +285,28 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
           padding: 0px;
           opacity: 90%;
           transition: opacity 0.2s;
-          
-          background-color: #43405D;
-          color: #DDDDDD;
+
+          background-color: #43405d;
+          color: #dddddd;
 
           width: 200px;
 
-          
-          img{
-            width: 100%;//150 by 221
+          img {
+            width: 100%; //150 by 221
             height: 100%;
             border-top-left-radius: 7px;
             border-top-right-radius: 7px;
           }
 
-          h2{
+          h2 {
             padding: 0px;
             font-size: 80%;
             margin-left: 4%;
             margin-top: 2%;
             margin-bottom: 0px;
-            -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);      
+            -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
           }
-          
+
           button {
             width: 100%;
             background-color: transparent;
@@ -328,7 +314,7 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
             border: none;
             outline: none;
             cursor: pointer;
-            color: #DDDDDD;
+            color: #dddddd;
             border-bottom-left-radius: 7px;
             border-bottom-right-radius: 7px;
             z-index: 1000;
@@ -337,36 +323,32 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
             transition: background-color 0.2s;
           }
 
-          button:hover{
+          button:hover {
             background-color: rgb(34, 37, 37);
           }
         }
       }
     }
-
-    
   }
 }
 
-#logo{
+#logo {
   cursor: pointer;
 }
 
-.modal{
+.modal {
   margin-right: auto;
   margin-left: auto;
   background-color: $modal-bg-clr;
   border-radius: 2%;
   width: 70%;
   padding: 2%;
-  image{
+  image {
     width: 400px;
   }
 }
 
 // Utility Classes
-
-
 
 .flex {
   display: flex;
@@ -389,7 +371,7 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
   align-items: center;
 }
 
-// Flex columns 
+// Flex columns
 
 .flex-column {
   display: flex;
@@ -414,4 +396,3 @@ $modal-bg-clr: rgba(221, 221, 221, 0.8);
   flex-direction: column;
   align-items: center;
 }
-
