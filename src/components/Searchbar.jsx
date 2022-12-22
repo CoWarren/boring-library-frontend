@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import magnify from "../assets/magnifyingGlass.png";
 import ResultsGrid from "./ResultsGrid";
+import PageBtns from "./PageBtns";
 
 const Searchbar = (props) => {
   // const [err, setErr] = useState('')
@@ -25,30 +26,32 @@ const Searchbar = (props) => {
     }
 
     // Fetch API
-    const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${params}:&printType=books&startIndex=0&maxResults=${nResults}&keyes&key=AIzaSyDO65f50s9nWzZSOFx3m10BJgc5PSzcQUo`
-    );
-    const data = await response.json();
-    const { items } = data;
+    // const response = await fetch(
+    //   `https://www.googleapis.com/books/v1/volumes?q=${params}:&printType=books&startIndex=0&maxResults=${nResults}&keyes&key=AIzaSyDO65f50s9nWzZSOFx3m10BJgc5PSzcQUo`
+    // );
+    // const data = await response.json();
+    // const { items } = data;
     //console.log(data)
 
-    // Fetching off API through backend (this is new)
-    // const response = await fetch(`http://localhost:8080/API/${params.split(' ').join('')}/0`)
-    // const {items} = await response.json()
+    //Fetching off API through backend (this is new)
+    const response = await fetch(`http://localhost:8080/API/${params.split(' ').join('')}/0`)
+    const {items} = await response.json()
     setBooks(items);
   };
 
   return (
-    <div className="main-section">
-      <form className="search-form" onSubmit={handleSubmit}>
+    <div className="main-section flex-column">
+      <form className="search-form flex" onSubmit={handleSubmit}>
         <input
           id="search-params"
           type="text"
           placeholder="Search" // onChange={(e) => search(e.target.value)}
         />
-        <button>
+        <button className="search-btn">
+
           <img src={magnify} />
         </button>
+        <PageBtns setBooks={setBooks}/>
       </form>
       <ResultsGrid
         favourites={props.favourites}

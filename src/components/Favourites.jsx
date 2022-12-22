@@ -12,6 +12,8 @@ const Favourites = ({
   const [readList, setReadList] = useState([]);
   const [filteredRead, setFilteredRead] = useState(false);
   const [filteredWishList, setFilteredWishList] = useState(false);
+  const [favSearch, setFavSearch] = useState([])
+  const [favSearchState, setFavSearchState] = useState(false)
   const [err, setErr] = useState("");
 
   useEffect(() => {
@@ -80,9 +82,24 @@ const Favourites = ({
     if (filteredWishList === true) {setFilteredWishList(false)}
     if (filteredWishList === false){setFilteredWishList(true)}
   }
+  
+  function handleSearch(e){
+    e.preventDefault()
+    if (e.target[0].value === ""){
+      setFavSearchState(false)}
+    else{
+      fetch(`http://localhost:8080/users/${sessionStorage.getItem("userId")}/favourites/${e.target[0].value}`, {method: "GET"})
+      .then((res) => res.json())
+      .then((data) => {
+        setFavSearch(data.map(obj => obj.id));
+        setFavSearchState(true)
+      }
+    );
+  }
+}
 
   return (
-    <div className="favourites">
+    <div className="fav-container flex-column">
       <div className="fav-header">
         <h1>Favourites</h1>
 
@@ -98,16 +115,16 @@ const Favourites = ({
             {!filteredWishList? "filter books marked on wishlist":"filtered by wishlist"}
           </button>
         </section>
-      </div>
-
-      <div className="flex books">
-        {/* <form action="">
+        <form action="" onSubmit={handleSearch} className="favourite-filter">
           <input
             className="search-favs"
             placeholder="Search through your favourites"
           />
-          <button></button>
-        </form> */}
+          <button type="submit">search</button>
+        </form>
+      </div>
+      <div className="fav-books flex">
+        
         {favorites.length === 0 && (
           <h2 className="errorText">No favourites to display</h2>
         )}
@@ -115,6 +132,7 @@ const Favourites = ({
         {favorites.map(function (book) {
           if(!filteredWishList || filteredWishList && wishList.includes(book.id)){
             if (!filteredRead || filteredRead && readList.includes(book.id)){
+              if(!favSearchState || favSearchState && favSearch.includes(book.id)){
               return (
                 <div key={book.id} className="book">
                   <img src={book.thumbnail} />
@@ -151,7 +169,7 @@ const Favourites = ({
                   REMOVE FROM FAVOURITES ❌
                 </button>
               </div>
-            );}}
+            );}}}
           })}
       </div>
     </div>

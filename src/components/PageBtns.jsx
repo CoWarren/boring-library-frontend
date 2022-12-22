@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const PageBtns = () => {
+const PageBtns = ({setBooks}) => {
+  const nResults = 40
+  const [bookPage,setBookPage] = useState(0)
 
     //DIFFERENT COMPONENT (Next and previous page for book results)
   async function changePage(diff){
@@ -16,16 +18,21 @@ const PageBtns = () => {
     }
 
     let params = document.getElementById('search-params').value //event.target[0].value
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params}:&startIndex=${bookPage}&printType=books&maxResults=${nResults}&keyes&key=AIzaSyBVFORSWf-PrtLdl80E1i75-y6UFU_Y74c`)
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${params}:&startIndex=${bookPage*40}&printType=books&maxResults=${nResults}&keyes&key=AIzaSyBVFORSWf-PrtLdl80E1i75-y6UFU_Y74c`)
     const data = await response.json()
     const { items } = data
+
+    console.log(items)
 
     setBooks(items)
 
   }
 
   return (
-      <></>
+      <div className="page-btns">
+        <button onClick={() => {changePage(-1)}}>prev</button>
+        <button onClick={() => {changePage(1)}}>next</button>
+      </div>
   )
 }
 

@@ -56,7 +56,7 @@ const Login = ({setPage,setBtnText}) => {
     }
   }
   return (
-    <div className='login-container flex-center-j'>
+    <div className='login-container flex-column-center-ja'>
         <form className='flex-column'>
           <div className='form-header'>Login/Register</div>
           <input id="username-input" type='text' placeholder='username'/>

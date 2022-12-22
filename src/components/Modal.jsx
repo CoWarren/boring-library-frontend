@@ -9,7 +9,7 @@ const Modal = (props) => {
             <div className='info'>
                 <div className='author-title'>
                     <h2>{props.title}</h2>
-                    <div className="authorName">by {props.author}</div>
+                    <div className="authorName"> by {props.author}</div>
                 </div>
                 <div className='desc'>
                     <p>{props.desc}</p>

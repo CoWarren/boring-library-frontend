@@ -12,19 +12,20 @@ function App() {
   const [page, setPage] = useState('main') //page which is being displayed (login or main)
   const [btnText, setBtnText] = useState('Login / Sign up') //update text on login button
   const [favorites, setFavorites] = useState([])
+  
   let [bookPage,setBookPage] = useState(1) //current batch of books from api 
 
   if (page === "main") {
     // initial commitß
     return (
-      <div className="App">
+      <div className="App flex-column">
         <Header
           setPage={setPage}
           btnText={btnText}
           setBtnText={setBtnText}
           page={page}
         />
-        <main className="grid">
+        <main className='flex flex-wrap'>
           <Favourites
             updateFavourite={updateFavourite}
             setUpdateFavourite={setUpdateFavourite}
@@ -37,16 +38,24 @@ function App() {
             setPage={setPage}
             bookPage={bookPage}
             setBookPage={setBookPage}
-            favoruites={favorites}
+            favourites={favorites}
           />
         </main>
       </div>
     );
   } else if (page === "login") {
     return (
-      <div className="App">
-        <Header setPage={setPage} btnText={btnText} setBtnText={setBtnText}/>
-        <Login setPage={setPage} page={page} setBtnText={setBtnText}/>
+      <div className="App flex-column">
+        <Header 
+          setPage={setPage} 
+          btnText={btnText} 
+          setBtnText={setBtnText}
+        />
+        <Login 
+          setPage={setPage} 
+          page={page} 
+          setBtnText={setBtnText}
+        />
       </div>
     );
   }
