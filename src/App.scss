@@ -23,7 +23,7 @@ $primary-txt-clr: #dddddd;
 }
 
 @mixin laptop {
-  @media screen and (max-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     @content;
   }
 }
@@ -130,8 +130,17 @@ $primary-txt-clr: #dddddd;
 
   main {
     height: 100%;
-    flex-wrap: wrap;
 
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      // flex-wrap: wrap;
+    }
+
+    @include laptop {
+      display: flex;
+      flex-direction: row;
+    }
     // flex-shrink: 1;
 
     .fav-container {
@@ -139,24 +148,49 @@ $primary-txt-clr: #dddddd;
       flex: 1;
 
       .fav-header {
-        align-self: center;
-        padding-bottom: 20px;
+        padding: 2em;
 
-        .favourite-filter {
-          padding-top: 2%;
-          text-align: center;
+        .fav-header-title {
+          align-self: center;
+        }
+
+        .fav-searchbar-container {
+          .fav-searchbar-form-container {
+            flex: 2;
+            form {
+              width: 100%;
+              input {
+                width: 100%;
+              }
+            }
+          }
+          .fav-form-filter-dropdown {
+            position: relative;
+
+            .menu {
+              position: absolute;
+              // width: 50px;
+
+              width: 200px;
+              // border: 1px solid red;
+              padding: 0;
+              margin: 0;
+              list-style-type: none;
+              top: 2.4em;
+              left: -10em;
+              button {
+                width: 100%;
+                cursor: pointer;
+              }
+            }
+          }
         }
       }
 
       .fav-books {
+        overflow-y: scroll;
         flex-wrap: wrap;
         justify-items: center;
-        padding-top: 5%;
-
-        padding-left: 5%;
-        padding-right: 5%;
-
-        margin-bottom: 10%;
 
         .errorText {
           margin-left: auto;
@@ -228,7 +262,7 @@ $primary-txt-clr: #dddddd;
     .main-section {
       // height: 100%;
       flex: 2;
-      padding: 2em;
+      padding: 3em;
       gap: 2em;
       .searchbar-container {
         justify-content: flex-start;
@@ -275,39 +309,28 @@ $primary-txt-clr: #dddddd;
         // padding: 2em;
         gap: 2em;
         overflow-y: scroll;
-        overflow-x: hidden;
-        justify-content: space-around;
         flex-wrap: wrap;
+        // height: 100vh;
+        margin-bottom: 4em;
 
         .book {
           background-color: #43405d;
           color: $primary-txt-clr;
           flex-basis: 200px;
-          ß
+
           // width: 200px;
 
           h2 {
-            padding: 0px;
-            font-size: 80%;
-            margin-left: 4%;
-            margin-top: 2%;
-            margin-bottom: 0px;
-            -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
           }
 
           button {
             width: 100%;
             background-color: transparent;
-            background-repeat: no-repeat;
+
             border: none;
             outline: none;
             cursor: pointer;
             color: $primary-txt-clr;
-            border-bottom-left-radius: 7px;
-            border-bottom-right-radius: 7px;
-            z-index: 1000;
-            align-self: flex-end;
-
             transition: background-color 0.2s;
           }
 
