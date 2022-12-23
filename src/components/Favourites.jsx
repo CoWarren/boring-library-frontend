@@ -191,8 +191,11 @@ const Favourites = ({
                 (favSearchState && favSearch.includes(book.id))
               ) {
                 return (
-                  <div key={book.id} className="book">
-                    <img src={book.thumbnail} />
+                  <div key={book.id} className="book flex">
+                    <div className="book-img-container">
+                      <img src={book.thumbnail} />
+                    </div>
+
                     <h2>{book.title}</h2>
                     <h2>{book.author}</h2>
                     <section className="filter-buttons">
