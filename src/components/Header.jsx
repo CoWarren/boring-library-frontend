@@ -12,8 +12,8 @@ const Header = ({ setPage, btnText, setBtnText, page }) => {
         .then((data) => setUsername(data.username));
 
       return (
-        <div className="username-container">
-          <h2 data-testid="header-username">Logged in as: {username}</h2>
+        <div data-testid="header-username" className="username-container">
+          <h2>Logged in as: {username}</h2>
         </div>
       );
     } else if (page === "main") {

@@ -18,6 +18,9 @@ const PageBtns = ({ setBooks }) => {
     }
 
     let params = document.getElementById("search-params").value; //event.target[0].value
+    if (params === ''){
+      params = 'java'
+    }
     const response = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${params}:&startIndex=${
         bookPage * 40

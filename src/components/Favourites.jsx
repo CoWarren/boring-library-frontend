@@ -171,7 +171,6 @@ const Favourites = ({
                 </li>
               </ul>
             ) : null}
-            {/* {open ? <div>Is Open</div> : <div>Is Closed</div>} */}
           </div>
         </div>
       </div>
@@ -191,13 +190,19 @@ const Favourites = ({
                 (favSearchState && favSearch.includes(book.id))
               ) {
                 return (
-                  <div key={book.id} className="book flex">
-                    <div className="book-img-container">
+                  <div key={book.id} className="fav-book-container flex-column">
+                    
+                    <div className="book-thumbnail-container flex">
                       <img src={book.thumbnail} />
                     </div>
-
-                    <h2>{book.title}</h2>
-                    <h2>{book.author}</h2>
+                    <div className="book-info-container flex-column">
+                       <div className="book-title-container">      
+                     <h2>{book.title}</h2>
+                    </div>
+                    <div className="book-author-container">
+                      <h2>{book.author}</h2>
+                    </div>
+                    <div className="book-btns-container flex-column">
                     <section className="filter-buttons">
                       <button
                         onClick={function () {
@@ -218,7 +223,8 @@ const Favourites = ({
                           : "Add to wish list"}
                       </button>
                     </section>
-                    <button
+                    <div className="fav-btns-container">
+                   <button
                       className="fav-button"
                       onClick={function (event) {
                         removeFavourite(
@@ -233,6 +239,14 @@ const Favourites = ({
                     >
                       REMOVE FROM FAVOURITES ❌
                     </button>
+                   </div>
+                    </div>
+
+                   
+                    
+                    </div>
+                   
+                   
                   </div>
                 );
               }

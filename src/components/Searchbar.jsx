@@ -16,7 +16,7 @@ const Searchbar = (props) => {
 
   const handleSubmit = async (event, defaultSearch) => {
     let params = "";
-
+    
     // On mount, display 'java' search results
     if (event) {
       event.preventDefault();
@@ -31,7 +31,6 @@ const Searchbar = (props) => {
     // );
     // const data = await response.json();
     // const { items } = data;
-    //console.log(data)
 
     //Fetching off API through backend (this is new)
     const response = await fetch(
@@ -55,8 +54,7 @@ const Searchbar = (props) => {
               <img src={magnify} />
             </button>
           </div>
-
-          <PageBtns setBooks={setBooks} />
+          <PageBtns setBooks={setBooks}/>
         </form>
       </div>
 

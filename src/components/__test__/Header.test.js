@@ -13,9 +13,5 @@ test('Should render the Header component and check if img exist', () => {
   expect(headerImg).toBeInTheDocument(); 
 })
 
-test('Should render the Header and check if the correct username is displayed', () => {
-  render(<Header/>);
-  const testUser = "tommy" 
-  const headerUser = screen.queryByTestId('header-username')
-  expect(headerUser).toHaveTextContent(`Logged in as: ${testUser}`); 
-})
+
+//Logged in as: ${testUser}

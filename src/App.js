@@ -24,7 +24,7 @@ function App() {
           setBtnText={setBtnText}
           page={page}
         />
-        <main>
+        <main className='flex'>
           <Favourites
             updateFavourite={updateFavourite}
             setUpdateFavourite={setUpdateFavourite}

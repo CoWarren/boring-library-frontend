@@ -38,47 +38,60 @@ function Book({
       inFavs = true;
     }
   }
+
+  const handleFavourites = (e) => {
+
+    if (!inFavs) {
+      //add to favourites bar
+      addToFavourites(
+        e,
+        authors.toString(),
+        title,
+        id,
+        thumbnail,
+        updateFavourite,
+        setUpdateFavourite,
+        favorites,
+        setFavorites,
+        setPage
+      );
+    } else {
+      removeFavourite(
+        e,
+        id,
+        updateFavourite,
+        setUpdateFavourite,
+        favorites,
+        setFavorites
+      );
+    }
+              
+  }
+
   return (
     <>
       <Popup
-        // key={id + "popup"}
         trigger={
-          <div className="book" key={book.id}>
-            <div className="img-container">
+          <div className="book flex-column" key={book.id}>
+            <div className="thumbnail-container flex">
               <img src={thumbnail} alt={`${title} Cover `}></img>
             </div>
-            <h2>{title}</h2>
+            <div className="info-container flex-column">
+              <div className="title-container">
+                 <h2>{title}</h2>
+              </div>
+              <div className="authors-container">
+
             <h2>{authors}</h2>
-            <button
-              onClick={function (e) {
-                if (!inFavs) {
-                  //add to favourites bar
-                  addToFavourites(
-                    e,
-                    authors.toString(),
-                    title,
-                    id,
-                    thumbnail,
-                    updateFavourite,
-                    setUpdateFavourite,
-                    favorites,
-                    setFavorites,
-                    setPage
-                  );
-                } else {
-                  removeFavourite(
-                    e,
-                    id,
-                    updateFavourite,
-                    setUpdateFavourite,
-                    favorites,
-                    setFavorites
-                  );
-                }
-              }}
-            >
-              {btnText}
-            </button>
+              </div>
+              <div className="add-to-fav-btn">
+                <button
+                  onClick={(e)=> (handleFavourites(e))}
+                >
+                  {btnText}
+                </button>
+              </div>
+            </div>
           </div>
         }
         modal
@@ -97,7 +110,7 @@ function Book({
 
 const ResultsGrid = (props) => {
   return (
-    <div className="search-results flex">
+    <div className="search-results grid">
       {props.books.map((book) => (
         <Book
           favourites={props.favourites}
